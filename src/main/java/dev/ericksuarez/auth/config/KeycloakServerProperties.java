@@ -1,11 +1,14 @@
 package dev.ericksuarez.auth.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "keycloak.server")
 public class KeycloakServerProperties {
 
-    String contextPath = "/auth";
+    @Value("${keycloak.server.contextPath}")
+    //String contextPath = "/auth";
+    String contextPath;
 
     String realmImportFile = "realm.json";
 
